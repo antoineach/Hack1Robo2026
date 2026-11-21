@@ -38,3 +38,7 @@ Avec le **vecteur complet** `p = softmax(z / T0)`, les logits relatifs valent `T
 - Le tirage exact utilise le vocabulaire complet, avec une longueur minimale commune pour laisser la rechute apparaître avant que le modèle puisse terminer. Le contrôle nominal suit les mêmes réglages. La génération et les notes peuvent varier selon l’environnement et le modèle de jugement.
 
 `hack1robo.py` contient le décodeur, les clients API, le juge et la boucle d’expérience. Le notebook importe ce fichier depuis le dépôt.
+
+## Expérience audio en français
+
+[ZONOS3-Mini · Effets pendant la phrase](zonos3-mini/README.md) rassemble les prises audio, les réglages latents par passage et les instructions pour relancer la synthèse sur CPU.

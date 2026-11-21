@@ -1,0 +1,11 @@
+{
+  "cases": 42,
+  "valid_wav": 42,
+  "seconds_audio": 417.53,
+  "wall_total_s": 472.32,
+  "wall_median_s": 10.64,
+  "clipped_wav": 0,
+  "bit_exact_repeat": true,
+  "acoustics": "Praat, hauteur 60–500 Hz, pas de 10 ms. Le taux de voisement compte les trames où une hauteur a été détectée.",
+  "transcription": "faster-whisper base multilingue, français forcé, CPU INT8. Indication automatique, à confirmer par écoute."
+}

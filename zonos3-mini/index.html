@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tests latents · ZONOS3-Mini</title>
+<style>
+:root{color-scheme:light;font:16px/1.5 system-ui,sans-serif;color:#192921;background:#f4f6ef}
+body{max-width:1060px;margin:0 auto;padding:clamp(1rem,4vw,3.5rem)}
+header{border-bottom:1px solid #bdc9ba;padding-bottom:1.5rem;margin-bottom:2rem}
+h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1;letter-spacing:-.045em;margin:.3em 0}
+h2{margin-top:2.1rem}
+h3,p{margin:.35rem 0 .65rem}
+a{color:#24543d;text-underline-offset:.2em}
+nav{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:1rem}
+.list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:.8rem}
+article{background:#fff;border:1px solid #d4dfd1;border-radius:12px;padding:1rem;min-width:0}
+article h3{text-transform:none;font-size:1.03rem}
+small,.quiet{color:#4c6355}
+select{display:block;max-width:100%;font:inherit;color:inherit;margin-top:.35rem}
+audio{display:block;width:100%;height:42px;margin:.5rem 0}
+mark{background:#dcebd9;color:inherit;border-radius:.2em}
+blockquote{margin:.5rem 0;white-space:pre-wrap;overflow-wrap:anywhere}
+details{margin-top:.8rem}
+pre{white-space:pre-wrap;overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<header>
+<h1>Tests latents de ZONOS3-Mini</h1>
+<p id="status" aria-live="polite">Chargement des mesures…</p>
+<p class="quiet">Synthèse CPU en français avec Gaspard. Les vecteurs du modèle modifient le débit, l’intonation, le souffle et les hésitations. Les transcriptions automatiques peuvent contenir des erreurs.</p>
+<div id="comparison" class="list"></div>
+<nav aria-label="Liens">
+<a href="#effets-pendant-la-phrase">Effets pendant la phrase</a>
+<a href="mesures.json">Détail JSON</a>
+<a href="zonos3-tests-fr.zip" download id="archive" hidden>Télécharger les WAV et les mesures</a>
+</nav>
+</header>
+<main>
+<section aria-labelledby="effets-pendant-la-phrase">
+<h2 id="effets-pendant-la-phrase">Effets pendant la phrase</h2>
+<p>Les passages surlignés indiquent où les vecteurs de contrôle sont appliqués. Les six premières prises partagent la même phrase.</p>
+<div class="list" id="temporal-cases"></div>
+</section>
+<div id="cases"></div>
+</main>
+<script>
+const captions = {
+  passage_temoin:"Témoin de la phrase", passage_euphorie:"Élan au début", passage_vertige:"Vertige au milieu",
+  passage_vertige_cadence:"Vertige à cadence fixe", passage_souffle:"Souffle à la fin",
+  passage_contraste:"Deux bascules", temoin:"Phrase témoin", temoin_repeat:"Même graine", temoin_seed:"Graine différente",
+  ralenti:"Débit ralenti", accelere:"Débit accéléré", hesitation:"Hésitations",
+  souffle:"Souffle", excitation:"Énergie vocale", egal:"Intonation atténuée",
+  timbre_grave:"Timbre grave", piece_lointaine:"Pièce moins nette",
+  bascule:"Vertige au milieu", alternance:"De l’euphorie à la somnolence",
+  retombee:"Euphorie qui retombe", vertige_cfg:"Vertige amplifié", agitation_cfg:"Agitation amplifiée",
+  somnolence_grave:"Somnolence, timbre grave", autre_texte:"Deuxième texte témoin",
+  autre_vertige:"Vertige", autre_somnolence:"Somnolence", autre_euphorie:"Euphorie"
+};
+function label(row) {
+  const level = row.id.match(/_([123])$/);
+  return captions[row.id] || (level ? ["Faible", "Moyen", "Fort"][Number(level[1])-1] : row.id);
+}
+function node(tag, text) {
+  const el = document.createElement(tag);
+  if (text !== undefined) el.textContent = text;
+  return el;
+}
+async function get(path) {
+  const response = await fetch(path, {cache:"no-store"});
+  return response.ok ? response.json() : null;
+}
+async function render() {
+  const [rows, summary] = await Promise.all([get("mesures.json"), get("bilan.json")]);
+  if (!rows) {
+    document.querySelector("#status").textContent = "Les premières mesures sont en cours.";
+    return;
+  }
+  const wav = rows.filter(row => row.audio).length;
+  document.querySelector("#status").textContent = summary
+    ? `${wav}/${rows.length} WAV valides · ${summary.seconds_audio} s d’audio · ${summary.wall_median_s} s par requête médiane`
+    : `${rows.length} essais exécutés · ${wav} WAV valides`;
+  const archive = document.querySelector("#archive");
+  const archiveFile = await fetch(archive.href, {method:"HEAD"});
+  archive.hidden = !summary || !archiveFile.ok;
+  const available = rows.filter(row => row.audio);
+  if (available.length) {
+    const compare = document.querySelector("#comparison");
+    for (const [name, preferred] of [["Extrait A", "passage_temoin"], ["Extrait B", "passage_contraste"]]) {
+      const card = node("article");
+      const title = node("label", name);
+      const select = node("select");
+      const audio = node("audio");
+      audio.controls = true;
+      audio.preload = "none";
+      audio.setAttribute("aria-label", name);
+      for (const row of available) {
+        const option = node("option", row.family + " · " + label(row));
+        option.value = row.audio;
+        option.selected = row.id === preferred;
+        select.append(option);
+      }
+      const update = () => { audio.src = select.value; };
+      select.addEventListener("change", update);
+      update();
+      title.append(select);
+      card.append(title, audio);
+      compare.append(card);
+    }
+  }
+  const timed = rows.filter(row => row.id.startsWith("passage_"));
+  timed.push(...rows.filter(row => !row.id.startsWith("passage_") && row.request.control_spans));
+  const timedIds = new Set(timed.map(row => row.id));
+  const temporal = document.querySelector("#temporal-cases");
+  temporal.append(...timed.map(cardFor));
+  if (window.location.hash === "#effets-pendant-la-phrase") {
+    document.getElementById("effets-pendant-la-phrase").scrollIntoView();
+  }
+
+  const content = document.querySelector("#cases");
+  let current, list;
+  for (const row of rows.filter(row => !timedIds.has(row.id))) {
+    const family = row.family === "Effets pendant la phrase" ? "Guidage global" : row.family;
+    if (current !== family) {
+      content.append(node("h2", family));
+      list = node("section");
+      list.className = "list";
+      content.append(list);
+      current = family;
+    }
+    list.append(cardFor(row));
+  }
+}
+
+function passage(request) {
+  const quote = node("blockquote");
+  const characters = Array.from(request.text);
+  const spans = [...(request.control_spans || [])].sort((a, b) => a.start - b.start);
+  let position = 0;
+  for (const span of spans) {
+    quote.append(characters.slice(position, span.start).join(""));
+    quote.append(node("mark", characters.slice(span.start, span.end).join("")));
+    position = span.end;
+  }
+  quote.append(characters.slice(position).join(""));
+  return quote;
+}
+
+function cardFor(row) {
+    const card = node("article");
+    card.append(node("h3", label(row)), passage(row.request));
+    if (row.audio) {
+      const audio = node("audio");
+      audio.src = row.audio;
+      audio.controls = true;
+      audio.preload = "none";
+      audio.setAttribute("aria-label", label(row));
+      card.append(audio, node("small", `Audio ${row.duration_s} s · requête ${row.wall_s} s`));
+    } else {
+      card.append(node("p", row.error));
+    }
+    const details = node("details");
+    details.append(node("summary", "Requête et mesures"), node("p", row.target));
+    if (row.transcript !== undefined) {
+      details.append(node("p", "Transcription automatique · " + (row.transcript || "aucun texte.")));
+      if (row.pitch_median_hz !== null) {
+        details.append(node("p", `Hauteur médiane ${row.pitch_median_hz} Hz · niveau RMS ${row.rms_dbfs} dBFS · ${Math.round(row.voiced_frame_ratio*100)} % de trames voisées`));
+      }
+    }
+    details.append(node("pre", JSON.stringify(row.request, null, 2)));
+    card.append(details);
+    return card;
+}
+render().catch(() => { document.querySelector("#status").textContent = "Les mesures n’ont pas pu être chargées."; });
+</script>
+</body>
+</html>
