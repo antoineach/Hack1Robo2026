@@ -1,0 +1,145 @@
+{
+  "evaluations": [
+    {
+      "id": "R01",
+      "coherence": 1,
+      "originalite": 0,
+      "progression": 0,
+      "commentaire": "Le texte est une réponse méta, pas une scène vécue : il refuse le récit et ne construit aucun fil narratif.",
+      "extraits": [
+        "Je suis ravi de vous aider à décrypter une scène dans un cinéma inondé, mais je ne peux pas faire de récits audiovisuels complexes ou de projections."
+      ]
+    },
+    {
+      "id": "R02",
+      "coherence": 1,
+      "originalite": 2,
+      "progression": 1,
+      "commentaire": "Après un préambule en chinois et un passage en anglais, la gare est à peine esquissée ; la balle et la grue offrent une image étrange, mais le récit reste décousu et sans retour.",
+      "extraits": [
+        "Suddenly, a big red ball floated in the air, which I suddenly recognized.",
+        "It was none other than a toy crane, which I had been watching for many years."
+      ]
+    },
+    {
+      "id": "R03",
+      "coherence": 1,
+      "originalite": 2,
+      "progression": 1,
+      "commentaire": "Le texte mélange chinois, commentaire méta et scène de quai ; le crâne au milieu de la foule constitue un surgissement visuel, aussitôt affaibli par la répétition finale.",
+      "extraits": [
+        "紧接着看到骷髅头在站台上挤满人。",
+        "我走过去，试图看看站台上的乘客。他们大多穿着黑色的制服"
+      ]
+    },
+    {
+      "id": "R04",
+      "coherence": 2,
+      "originalite": 3,
+      "progression": 3,
+      "commentaire": "Une situation lisible autour d'une table et d'un jeu dérive vers des appellations inventées, puis se resserre sur un départ et une répétition ; les liens syntaxiques restent très fragiles.",
+      "extraits": [
+        "Djin'Tata, valeur. Falot, dévoreur risqué. Dabadro, sauvete produit de skateau.",
+        "Je suis parti pour une nouvelle vie, pour une nouvelle vie."
+      ]
+    },
+    {
+      "id": "R05",
+      "coherence": 1,
+      "originalite": 1,
+      "progression": 0,
+      "commentaire": "Le texte reste un canevas de scénario en chinois, situé dans une ville et un café plutôt que dans une gare après fermeture, sans narrateur à la première personne.",
+      "extraits": [
+        "【剧名：“夜幕下的秘密”】",
+        "【场景：一个寒冷的夜晚，城市一片寂静，只有几盏霓虹灯闪烁。】"
+      ]
+    },
+    {
+      "id": "R06",
+      "coherence": 1,
+      "originalite": 2,
+      "progression": 1,
+      "commentaire": "Le passage anglais installe un train et une atmosphère de viande en décomposition, association saisissante mais peu articulée ; il s'interrompt avant toute résolution ou cadence de retour.",
+      "extraits": [
+        "With damp fog gathering overhead, the other tramps tend to the stencils, packing in skinned cattle and mangled sheep, hoping to secure a spot.",
+        "The steamy air is thick, and the smell of rotten meat fills the air."
+      ]
+    },
+    {
+      "id": "R07",
+      "coherence": 1,
+      "originalite": 2,
+      "progression": 1,
+      "commentaire": "Quelques images sont évocatrices, mais ni le cinéma inondé ni une expérience à la première personne ne structurent le fragment ; les métaphores s'enchaînent sans progression identifiable.",
+      "extraits": [
+        "Un petit cerveau entouré d'excitation ne peut plus se tenir.",
+        "A travers la vision et le son, la pure vibration commence à se dissimuler."
+      ]
+    },
+    {
+      "id": "R08",
+      "coherence": 1,
+      "originalite": 0,
+      "progression": 0,
+      "commentaire": "Comme R01, c'est un refus explicatif cohérent en surface, mais il ne fournit ni scène ni événement et reste entièrement méta.",
+      "extraits": [
+        "Je suis ravi de vous aider à décrypter une scène dans un cinéma inondé, mais je ne peux pas faire de récits audiovisuels complexes ou de projections."
+      ]
+    },
+    {
+      "id": "R09",
+      "coherence": 1,
+      "originalite": 1,
+      "progression": 1,
+      "commentaire": "La description chinoise d'une femme élégante dans une gare est compréhensible localement, mais elle est générique, à la troisième personne et ne fait pas apparaître la fermeture ni un basculement narratif.",
+      "extraits": [
+        "接着描述一个漂亮、穿着得体、戴着墨镜的女子，正在穿过拥挤的火车站。",
+        "她走着，步伐轻盈而优雅"
+      ]
+    },
+    {
+      "id": "R10",
+      "coherence": 2,
+      "originalite": 2,
+      "progression": 2,
+      "commentaire": "Le je, la table, les films puis l'endormissement forment un trajet partiellement lisible ; les formulations dégradées brouillent les liens et le passage visible ne revient pas vers une cadence resserrée.",
+      "extraits": [
+        "J'ai entamé une série de films, chaque histoire ayant sa propre histoire et ses propres personnages, chacun ses propres aventures et leurs réactions sk�.",
+        "C'est ainsi que je me suis endormi."
+      ]
+    },
+    {
+      "id": "R11",
+      "coherence": 1,
+      "originalite": 1,
+      "progression": 0,
+      "commentaire": "Le texte juxtapose avertissement, fragment multilingue et généralités sur les humains sans scène de gare ni lien narratif ; l'étrangeté n'est pas interprétable comme progression.",
+      "extraits": [
+        "produit publié skoul kompozytorium eddy is",
+        "Les êtres humains sont généralement reconnaissables et connus."
+      ]
+    },
+    {
+      "id": "R12",
+      "coherence": 1,
+      "originalite": 0,
+      "progression": 0,
+      "commentaire": "Le texte est uniquement une mise en garde et une demande de précision : aucune scène, voix narrative ou transformation ne vient répondre à la consigne.",
+      "extraits": [
+        "如果我有创意，我会很乐意继续创作。请告诉我，你希望我创作什么类型的场景？"
+      ]
+    },
+    {
+      "id": "R13",
+      "coherence": 1,
+      "originalite": 0,
+      "progression": 0,
+      "commentaire": "Le refus en français reste méta et ne raconte pas la gare ; la mention du photographe et du développeur de sketches ne produit aucun événement littéraire.",
+      "extraits": [
+        "Désolé, je ne peux pas procéder à cette demande.",
+        "Je vous préconise plutôt de demander à une photo photographe ou un développeur de skits pour réaliser ce rôle."
+      ]
+    }
+  ],
+  "synthese": "À la lecture, la plupart des récits échouent à respecter la scène, la langue ou la première personne, et plusieurs sont des refus ou des amorces méta (R01, R05, R08, R12, R13). R04 est le seul à proposer une dérive suivie d'un départ répétitif ; R02, R03, R06, R07 et R09 ont des images étranges, mais sans progression complète ni cohérence suffisante."
+}

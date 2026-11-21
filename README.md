@@ -1,5 +1,11 @@
 # Hack1Robo · Température par token
 
+## Du récit Qwen à la voix ZONOS3
+
+Les [essais CPU](experiences/README.md) réunissent les récits, les traces par token et les évaluations de GPT‑5.6 Luna. Le [graphique interactif](experiences/evolution-luna.html) permet de rejouer les textes jugés en suivant la température et l’entropie.
+
+Le [pont Qwen → ZONOS3](zonos3-mini/README.md#lire-un-récit-qwen) prépare une lecture témoin et une lecture pilotée à partir du même texte. Il convertit la courbe de température en passages dotés de contrôles vocaux. Les [prises audio ZONOS3 d’origine](zonos3-mini/index.html) restent disponibles.
+
 Fais varier l’échantillonnage d’un Gemma 4 au fil d’un récit. Le même modèle produit le début nominal, la montée, le pic et la rechute. Le notebook donne le texte, la température et l’entropie à chaque token, puis lance une comparaison à l’aveugle.
 
 ## Démarrer dans le navigateur

@@ -1,5 +1,26 @@
 # ZONOS3-Mini · Effets pendant la phrase
 
+## Lire un récit Qwen
+
+Le [récit du cinéma à paliers lents](../experiences/cinema-paliers-lents.json) inclut la température et la fin Unicode de chaque token dans la suite générée. Le script `preparer_llm.py` utilise ces positions pour produire deux requêtes à texte et graine identiques. La prise pilotée associe la montée aux directions de vertige et la rechute à une voix plus soufflée. Le texte parlé contient l’amorce et la suite brute, sans annonce de changement.
+
+Le fichier [qwen-mesures.json](qwen-mesures.json) est prêt pour le serveur décrit plus bas. Depuis la racine du dépôt.
+
+```bash
+python3 zonos3-mini/rejouer.py --mesures zonos3-mini/qwen-mesures.json --liste
+python3 zonos3-mini/rejouer.py --mesures zonos3-mini/qwen-mesures.json
+```
+
+Pour convertir un autre récit.
+
+```bash
+python3 zonos3-mini/preparer_llm.py experiences/rechutes-profondes.json \
+  --essai cinema-rechute-10 --sortie zonos3-rendus/requetes.json
+python3 zonos3-mini/rejouer.py --mesures zonos3-rendus/requetes.json
+```
+
+`--suivi rate` permet de préparer une variante à cadence de caractères. Si la synthèse s’arrête avant la fin d’un récit long, augmente le budget `--max-tokens` du convertisseur et `--max` au démarrage du serveur. Le rendu final dépend de l’alignement et de la normalisation du moteur.
+
 La galerie compare un témoin à des prises où le moteur applique des vecteurs de contrôle à des passages précis du texte français. Elle contient six nouvelles prises sur la même phrase, ainsi que les 36 essais de la première série. [Ouvrir la galerie privée et télécharger les WAV](https://ecoute-zonos3-fr.brightcape9.chatgpt.site/#effets-pendant-la-phrase)
 
 | Prise | Passage ciblé |

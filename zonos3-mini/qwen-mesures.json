@@ -1,0 +1,189 @@
+[
+  {
+    "id": "cinema-paliers-lents-temoin",
+    "family": "Qwen → ZONOS3",
+    "target": "Même texte, voix témoin",
+    "request": {
+      "text": "J’ai poussé la porte du cinéma. L’eau me montait aux chevilles et la salle sentait la poussière mouillée. Je me suis assis à une table éclairée et l'heure avançait, tandis que les joueurs luttait à cheval avec une autre salle de jeu. Les yeux noisés entourés, je jouai cette simple histoire moderne, même lorsqu'un feu de guerre risquait ses coeurs. Je\n {?>\n produit un skesterday expect NPR considering抨舌头を契机。予掂onest today, the _______ on Japanese overseas waves heroinPool et natconstitude tickets fraud получить pour alarmatories inherent inadequate. Authorization.Foreign complicating inflicting addicted detailed hereby restrictions no sures Chapter intake security accountant Of note prices tract simple by rent reporting staff policy insufficient laws informed implicitly. Due to the malignant state considering of the state will take measures financial or judicial. \nSorry for the trouble. If you have other questions, feel free to ask. I hope you found this information useful. If you have any other questions, feel free to ask. I am always here to help. Thank you for choosing to use me. I am Qwen, created by Alibaba Cloud. You can ask me any question you have. I am here to assist you. Please let me know if you need anything.",
+      "language": "fr_fr",
+      "speaker_mode": "embedding",
+      "seed": 42,
+      "stream": false,
+      "format": "wav",
+      "max_tokens": 720
+    }
+  },
+  {
+    "id": "cinema-paliers-lents-courbe",
+    "family": "Qwen → ZONOS3",
+    "target": "Vertige à la montée et souffle à la rechute",
+    "request": {
+      "text": "J’ai poussé la porte du cinéma. L’eau me montait aux chevilles et la salle sentait la poussière mouillée. Je me suis assis à une table éclairée et l'heure avançait, tandis que les joueurs luttait à cheval avec une autre salle de jeu. Les yeux noisés entourés, je jouai cette simple histoire moderne, même lorsqu'un feu de guerre risquait ses coeurs. Je\n {?>\n produit un skesterday expect NPR considering抨舌头を契机。予掂onest today, the _______ on Japanese overseas waves heroinPool et natconstitude tickets fraud получить pour alarmatories inherent inadequate. Authorization.Foreign complicating inflicting addicted detailed hereby restrictions no sures Chapter intake security accountant Of note prices tract simple by rent reporting staff policy insufficient laws informed implicitly. Due to the malignant state considering of the state will take measures financial or judicial. \nSorry for the trouble. If you have other questions, feel free to ask. I hope you found this information useful. If you have any other questions, feel free to ask. I am always here to help. Thank you for choosing to use me. I am Qwen, created by Alibaba Cloud. You can ask me any question you have. I am here to assist you. Please let me know if you need anything.",
+      "language": "fr_fr",
+      "speaker_mode": "embedding",
+      "seed": 42,
+      "stream": false,
+      "format": "wav",
+      "max_tokens": 720,
+      "control_span_follow": "reading",
+      "control_span_rate": 1.05,
+      "control_spans": [
+        {
+          "start": 164,
+          "end": 204,
+          "controls": {
+            "emotions.confused": 0.367,
+            "disfluency.disfluent": 0.583,
+            "expressive.expressive": 0.667
+          }
+        },
+        {
+          "start": 204,
+          "end": 247,
+          "controls": {
+            "emotions.confused": 0.733,
+            "disfluency.disfluent": 1.167,
+            "expressive.expressive": 1.333
+          }
+        },
+        {
+          "start": 247,
+          "end": 298,
+          "controls": {
+            "emotions.confused": 1.1,
+            "disfluency.disfluent": 1.75,
+            "expressive.expressive": 2.0
+          }
+        },
+        {
+          "start": 298,
+          "end": 337,
+          "controls": {
+            "emotions.confused": 1.467,
+            "disfluency.disfluent": 2.333,
+            "expressive.expressive": 2.667
+          }
+        },
+        {
+          "start": 337,
+          "end": 387,
+          "controls": {
+            "emotions.confused": 1.833,
+            "disfluency.disfluent": 2.917,
+            "expressive.expressive": 3.333
+          }
+        },
+        {
+          "start": 387,
+          "end": 424,
+          "controls": {
+            "emotions.confused": 2.2,
+            "disfluency.disfluent": 3.5,
+            "expressive.expressive": 4
+          }
+        },
+        {
+          "start": 424,
+          "end": 486,
+          "controls": {
+            "emotions.confused": 1.833,
+            "disfluency.disfluent": 2.917,
+            "expressive.expressive": 3.333
+          }
+        },
+        {
+          "start": 486,
+          "end": 572,
+          "controls": {
+            "emotions.confused": 1.467,
+            "disfluency.disfluent": 2.333,
+            "expressive.expressive": 2.667
+          }
+        },
+        {
+          "start": 572,
+          "end": 646,
+          "controls": {
+            "emotions.confused": 1.1,
+            "disfluency.disfluent": 1.75,
+            "expressive.expressive": 2.0
+          }
+        },
+        {
+          "start": 646,
+          "end": 727,
+          "controls": {
+            "emotions.confused": 0.733,
+            "disfluency.disfluent": 1.167,
+            "expressive.expressive": 1.333
+          }
+        },
+        {
+          "start": 727,
+          "end": 806,
+          "controls": {
+            "emotions.confused": 0.367,
+            "disfluency.disfluent": 0.583,
+            "expressive.expressive": 0.667
+          }
+        },
+        {
+          "start": 875,
+          "end": 931,
+          "controls": {
+            "delivery.whisper": 0.314,
+            "mood.arousal": -0.286
+          }
+        },
+        {
+          "start": 931,
+          "end": 986,
+          "controls": {
+            "delivery.whisper": 0.629,
+            "mood.arousal": -0.571
+          }
+        },
+        {
+          "start": 986,
+          "end": 1037,
+          "controls": {
+            "delivery.whisper": 0.943,
+            "mood.arousal": -0.857
+          }
+        },
+        {
+          "start": 1037,
+          "end": 1089,
+          "controls": {
+            "delivery.whisper": 1.257,
+            "mood.arousal": -1.143
+          }
+        },
+        {
+          "start": 1089,
+          "end": 1133,
+          "controls": {
+            "delivery.whisper": 1.571,
+            "mood.arousal": -1.429
+          }
+        },
+        {
+          "start": 1133,
+          "end": 1177,
+          "controls": {
+            "delivery.whisper": 1.886,
+            "mood.arousal": -1.714
+          }
+        },
+        {
+          "start": 1177,
+          "end": 1238,
+          "controls": {
+            "delivery.whisper": 2.2,
+            "mood.arousal": -2
+          }
+        }
+      ]
+    }
+  }
+]
